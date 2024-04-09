@@ -277,4 +277,7 @@ contract Bridge is owned {
         }
         payable(owner).transfer(rescueAmount);
     }
+    function setTxFee(uint256 amount) external onlyOwner {
+        txFee = amount;
+    }
 }
