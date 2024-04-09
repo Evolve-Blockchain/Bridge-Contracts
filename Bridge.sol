@@ -223,7 +223,7 @@ contract Bridge is owned {
 
     /* Process Tax*/
     function processTax(uint256 amount) internal pure returns(uint256 afterTax, uint256 deductedTax) {
-        deductedTax = (500 * amount) / 1e4; /* 5% of amount*/
+        deductedTax = (txFee * amount) / 1e4; /* 5% of amount*/
         afterTax = amount - deductedTax;
     }
 
