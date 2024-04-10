@@ -223,7 +223,8 @@ contract Bridge is owned {
 
     /* Process Tax*/
     function processTax(uint256 amount) internal view returns(uint256 afterTax, uint256 deductedTax) {
-        deductedTax = (txFee * amount) / 1e4; /* 5% of amount*/
+        require(amount>txFee, "Fee greater than amount");
+        deductedTax = txFee;
         afterTax = amount - deductedTax;
     }
 
